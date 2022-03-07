@@ -6,7 +6,7 @@ const container = document.querySelector('.container')
 searchForm.addEventListener('submit', submit);
 searchButton.addEventListener('submit', submit);
 
-function submit() {
+function submit(e) {
     e.preventDefault();
     getWeather();
 }
@@ -14,16 +14,16 @@ function submit() {
 //handle API key and error handling 
 async function getData(location){
     const response = await fetch(
-        `http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=a7ff76b92de774f6d574180419f69a35=${location}`,
-        {mode: 'cors'}
+        `http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=fb67dc4a6b8726ed40bcbc7fb8b825f8${location}`,
+        {mode: 'cors'},
     )
     if(response.status === 400){
         throwError();
     }else{
-        error.display = 'none';
+        error.style.display = 'none';
         const weatherData = await response.json();
         const receivedData = processData(weatherData);
-        displayWeather(receivedData);
+        showData(receivedData);
         reset();
     }
 }
@@ -59,8 +59,6 @@ function showData(receivedData) {
         if(!div.classList.contains('slide-up')){
             div.offsetWidth;
             div.classList.add('slide-up');
-        }else{
-            return
         }
     });
     //logic for inputting received data
@@ -84,6 +82,6 @@ function reset() {
 //obtain user location
 function getWeather() {
     const userInput = document.querySelector('input[type="text"]');
-    const userLocationQuery = input.value;
+    const userLocationQuery = userInput.value;
     getData(userLocationQuery);
 }
