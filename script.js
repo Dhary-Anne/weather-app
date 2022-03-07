@@ -14,7 +14,7 @@ function submit(e) {
 //handle API key and error handling 
 async function getData(location){
     const response = await fetch(
-        `http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=fb67dc4a6b8726ed40bcbc7fb8b825f8${location}`,
+        `api.openweathermap.org/data/2.5/weather?q=${location}&APPID=fb67dc4a6b8726ed40bcbc7fb8b825f8`,
         {mode: 'cors'},
     )
     if(response.status === 400){
