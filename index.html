@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Weather App</title>
+</head>
+<body>
+<div class="container">
+    <!--form-->
+ <!--<main class="main-content"> -->
+    <header id="form-container">
+        <form class="search-form">
+            <label for="search-bar" name="search-bar"></label>
+            <input type="text" name="search-bar" id="seach--bar" placeholder="Enter city" required>
+            <button type="submit" class="submit-button">
+                <img src="/imgs/search.png">
+                Search</button>
+            <br> 
+            <span class="error-msg">Location not found!</span>   
+        </form>
+    </header>
+
+    <!--display results-->
+    <div class="search-result" id="searchResult">
+        <div class="general"> 
+        <p id="weather">PARTLY CLOUDY</p>
+        <h2 id="weather-location">SAN DIEGO, CALIFORNIA</h4>
+        <span class="degrees">72</p>
+        </div>
+
+        <div class="weather-details">
+            <p class="feels-like">FEELS LIKE: 70</p>
+            <p class="wind-info">WIND: 7MPH</p>
+            <p class="humidity-info">HUMIDITY: 69</p>
+        </div>
+    </div>
+<!-- </main>   -->
+</div>
+ <script src="script.js"></script>
+</body>
+</html>
