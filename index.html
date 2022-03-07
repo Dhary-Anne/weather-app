@@ -11,13 +11,12 @@
 <div class="container">
 
     <!--form-->
- <!--<main class="main-content"> -->
     <header id="form-container">
         <form class="search-form">
             <label for="search-bar" name="search-bar"></label>
             <input type="text" name="search-bar" id="seach--bar" placeholder="Enter city" required>
             <button type="submit" class="submit-button">
-                <img src="/imgs/search.png">
+                <img src="imgs/search.png">
                 Search</button>
             <br> 
             <span class="error-msg">Location not found!</span>   
@@ -27,8 +26,8 @@
     <!--display results-->
     <div class="search-result weather-info" id="searchResult">
         <div class="general"> 
-        <p id="condition">PARTLY CLOUDY</p>
-        <h2 id="weather-location">SAN DIEGO, CALIFORNIA</h4>
+        <p class="condition">PARTLY CLOUDY</p>
+        <h2 class="weather-location">SAN DIEGO, CALIFORNIA</h4>
         <span class="degrees">72</p>
         </div>
 
@@ -38,7 +37,6 @@
             <p class="humidity-info">HUMIDITY: 69</p>
         </div>
     </div>
-<!-- </main>   -->
 </div>
  <script src="script.js"></script>
 </body>

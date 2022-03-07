@@ -21,7 +21,7 @@ body{
 }
 
 .container{
-    background-image: url(/imgs/sky.jpg);
+    background-image: url(imgs/sky.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -68,9 +68,9 @@ input[type='text'] {
   .error-msg {
     display: hidden;
     position: absolute;
-    left: 2rem;
+    left: 92rem;
     color: #ff3333;
-    font-size: 15px;
+    font-size: 1.7rem;
     display: none;
   }
   .search-result{
@@ -103,14 +103,6 @@ input[type='text'] {
 
   .slide-up{
       animation: slideUp 0.2s;
-  }
-  /* Rounded sliders */
-.slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
   }
 
   @keyframes slideUp {
