@@ -1,6 +1,15 @@
-const searchForm = document.querySelector('search-form');
-const searchButton = document.querySelector('submit-button');
-const error = document.querySelector('error.msg');
+const searchForm = document.querySelector('.search-form');
+const searchButton = document.querySelector('.submit-button');
+const error = document.querySelector('.error-msg');
+const container = document.querySelector('.container')
+
+searchForm.addEventListener('submit', submit);
+searchButton.addEventListener('submit', submit);
+
+function submit() {
+    e.preventDefault();
+    getWeather();
+}
 
 //handle API key and error handling 
 async function getData(location){
@@ -54,12 +63,26 @@ function showData(receivedData) {
             return
         }
     });
-    
-    //add logic for inputting received data
+    //logic for inputting received data
+    document.getElementById('condition').textContent = receivedData.condition;
+    document.querySelector(
+        '.weather-location').textContent = `${receivedData.location}, ${receivedData.region}`;
+    document.querySelector('.degrees').textContent = receivedData.currentTemperature.f;
+    document.querySelector(
+        '.feels-like'
+    ).textContent = `FEELS LIKE: ${receivedData.feelsLike.f}`;
+    document.querySelector('.wind-info').textContent = `WIND: ${receivedData.WIND} MPH`;
+    document.querySelector(
+        '.humidity'
+    ).textContent = `HUMIDITY: ${receivedData.humidity}`;
 }
 
+
+function reset() {
+    form.reset();
+}
 //obtain user location
-function obtainUserInput() {
+function getWeather() {
     const userInput = document.querySelector('input[type="text"]');
     const userLocationQuery = input.value;
     getData(userLocationQuery);
