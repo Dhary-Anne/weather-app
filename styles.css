@@ -104,6 +104,14 @@ input[type='text'] {
   .slide-up{
       animation: slideUp 0.2s;
   }
+  /* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
 
   @keyframes slideUp {
     0% {
