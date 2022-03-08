@@ -26,6 +26,7 @@ async function getData(location) {
         showData(receivedData);
         reset();
     }
+    return getData
 }
 
 function throwError() {
@@ -36,20 +37,14 @@ function throwError() {
 //collect data needed to display 
 function processData(weatherData) {
     const myData = {
-        condition: weatherData.current.condition.text,
-        feelsLike: {
-            f: Math.round(weatherData.current.feelslike_f),
-            c: Math.round(weatherData.current.feelslike_c),
-        },
-        currentTemp: {
-            f: Math.round(weatherData.current.temp_f),
-            c: Math.round(weatherData.current.temp_c),
-        },
-        wind: Math.round(weatherData.current.wind_mph),
-        humidity: weatherData.current.humidity,
-        location: weatherData.location.name.toUpperCase(),
-    };
-
+       // condition: weatherData.weather.description,
+        feelsLike: weatherData.main.feels_like,
+        currentTemp: weatherData.main.temp,
+        wind: weatherData.wind.speed,
+        humidity: weatherData.main.humidity,
+        location: weatherData.name,
+    }
+    console.log(weatherData.weather.description)
     return myData;
 }
 
@@ -65,11 +60,11 @@ function showData(receivedData) {
     //logic for inputting received data
     document.querySelector('.condition').textContent = receivedData.condition;
     document.querySelector(
-        '.weather-location').textContent = `${receivedData.location}, ${receivedData.region}`;
-    document.querySelector('.degrees').textContent = receivedData.currentTemp.f;
+        '.weather-location').textContent = `${receivedData.location}`;
+    document.querySelector('.degrees').textContent = `${receivedData.currentTemp} °C`;
     document.querySelector(
         '.feels-like'
-    ).textContent = `FEELS LIKE: ${receivedData.feelsLike.f}`;
+    ).textContent = `FEELS LIKE: ${receivedData.feelsLike}`;
     document.querySelector('.wind-info').textContent = `WIND: ${receivedData.wind} MPH`;
     document.querySelector(
         '.humidity-info'
@@ -78,7 +73,7 @@ function showData(receivedData) {
 
 
 function reset() {
-    form.reset();
+    searchForm.reset();
 }
 //obtain user location
 function getWeather() {

@@ -78,13 +78,16 @@ input[type='text'] {
       top: 30%;
       left: 45%;
   }
+  .weather-location{
+    font-size: 9rem;
+  }
   .degrees{
-      font-size: 12rem;
+      font-size: 6rem;
       font-weight: 800;
       position: relative;
   }
   .degrees::after{
-    content: '\00B0 F';
+    content: '\00B0 C';
     font-size: 4rem;
     position: absolute;
     top: 2rem;
@@ -94,7 +97,7 @@ input[type='text'] {
       position: relative;
   }
   .feels-like::after{
-      content: '\00B0 F';
+      content: '\00B0 C';
       position: absolute;
   }
   .humidity-info::after {
