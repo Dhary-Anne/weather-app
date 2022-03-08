@@ -82,3 +82,17 @@ function getWeather() {
     const userInput = document.querySelector('input[type="text"]').value;
     getData(userInput);
 }
+
+function changeMode() {
+    let element = document.body;
+    element.classList.toggle('dark-mode');
+ }
+
+const switchToggle = document.querySelector('input[type="checkbox"]')
+
+switchToggle.addEventListener('click', (e) =>{
+    e.preventDefault();
+    changeMode();
+})
+
+ 
