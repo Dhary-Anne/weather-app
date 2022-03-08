@@ -9,12 +9,14 @@ searchButton.addEventListener('submit', submit);
 function submit(e) {
     e.preventDefault();
     getWeather();
+    let degrees = document.querySelector('.degrees');
+    degress.style.content = 'none'
 }
 
 //handle API key and error handling 
 async function getData(location) {
     const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=fb67dc4a6b8726ed40bcbc7fb8b825f8`,
+        `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&APPID=fb67dc4a6b8726ed40bcbc7fb8b825f8`,
         {mode: 'cors',}
     );
     if(response.status === 404){
@@ -61,7 +63,7 @@ function showData(receivedData) {
     document.querySelector('.condition').textContent = receivedData.condition;
     document.querySelector(
         '.weather-location').textContent = `${receivedData.location}`;
-    document.querySelector('.degrees').textContent = `${receivedData.currentTemp} °C`;
+    document.querySelector('.degrees').textContent = `${receivedData.currentTemp}`;
     document.querySelector(
         '.feels-like'
     ).textContent = `FEELS LIKE: ${receivedData.feelsLike}`;
